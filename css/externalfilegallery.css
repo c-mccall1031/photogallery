@@ -1,9 +1,14 @@
-.enlarge-onhover {
-     width: 30px;
-     height: 30px;
+img{
+    width: 25%;
+    height: 25%;
 }
 
+.enlarge-onhover {
+        width: 50%;
+        height: 50%px;
+   }
+   
 .enlarge-onhover:hover {
-     width: 70px;
-     height: 70px;
+        width: 70px;
+        height: 70px;
 }
