@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Photo Gallery</title>
-	<link rel="stylesheet" href="css/externalfilegallery.css">
-	<script src = "js/externalfilegallery.js"></script>
-</head>
-<body>
-	
-	<div id = "image">
-		Hover over an image below to display here.
-	</div>
-	
-	<img class = "preview" alt = "My cat walking in leaves" src = "images/Lincoln_walking.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	
-	<img class = "preview" alt = "My dogs first winter in Colorado" src = "images/Axis_in_snow.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
-	
-	<img class = "enlarge-onhover" src = "images/Lincoln_covered.jpg" alt = "My cat covered in grass" onmouseover = "upDate(this)" onmouseout = "unDo()">
-
-</body>
+<html>
+  <head>
+    <title>Interactive Photo Gallery</title>
+    <link rel="stylesheet" href="css/externalfilegallery.css">
+    <script src = "js/externalfilegallery.js"></script>
+  </head>
+  <body>
+    <h1>My Interactive Photo Gallery</h1>
+    <div>
+        <p id = "image">Hover over an image below to display here.<p>
+    </div>
+    <img class = "preview" alt = "Relaxing in the shade." src = "images/Axis_relaxing_shade.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
+    <img class = "preview" src = "images/Lincoln_walking.jpg" alt = "My cat walking through leaves" onmouseover = "upDate(this)" onmouseout = "unDo()">
+    <img class = "preview" src = "images/Axis_in_snow.jpg" alt = "Walking in the snow." onmouseover = "upDate(this)" onmouseout = "unDo()">
+    <img class = "preview" alt = "Getting covered in grass and leaves" src = "images/Lincoln_covered.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
+    
+    <div id="buttons">
+        <button onclick = "openFunction()">Explain pictures</button>
+        <button onclick = "closeFunction()">Hide explaination</button>
+        <p id="content">An interactive photo gallery featuring my pets.</p>
+      </div>
+  </body>
 </html>
