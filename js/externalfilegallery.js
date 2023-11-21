@@ -1,13 +1,20 @@
-<script>
-function bigImg(x) {
-   x.style.height = "64px";
-   x.style.width = "64px";
+function upDate(previewPic){
+ let imageElement = document.getElementById('image');
+ imageElement.style.backgroundImage = `url('${previewPic.src}')`;
+ imageElement.textContent = previewPic.alt;
 }
 
-function normalImg(x) {
-   x.style.height = "32px";
-   x.style.width = "32px";
+function unDo(){
+ let imageElement = document.getElementById('image');
+ imageElement.style.backgroundImage = "url('')";
+ imageElement.textContent = "Hover over an image below to display here.";
 }
-</script>
-  
-<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="images/Axis_in_snow.jpg" alt="My dog hiking in the snow" width="32" height="32">
+
+function openFunction(){
+  el = document.getElementById("content");
+  el.style.display = "block";
+}
+function closeFunction(){
+  el = document.getElementById("content");
+  el.style.display = "none";
+}
