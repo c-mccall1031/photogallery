@@ -1,1 +1,1 @@
-<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="smiley.gif" alt="Smiley" width="32" height="32">
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="images/Axis_in_snow.jpg" alt="My dog hiking in the snow" width="32" height="32">
