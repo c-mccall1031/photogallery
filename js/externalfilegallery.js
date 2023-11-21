@@ -1,11 +1,1 @@
-function upDate(previewPic){
- let imageElement = document.getElementById('image');
- imageElement.style.backgroundImage = `url('${previewPic.src}')`;
- imageElement.textContent = previewPic.alt;
-}
-
-function unDo(){
- let imageElement = document.getElementById('image');
- imageElement.style.backgroundImage = "url('')";
- imageElement.textContent = "Hover over an image below to display here.";
-}
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="smiley.gif" alt="Smiley" width="32" height="32">
