@@ -1,76 +1,61 @@
-let currentIndex = 0;
-        const images = document.querySelectorAll('.gallery img');
-        const totalImages = images.length;
+/* when the window is finished loading then call
+the function that adds the tab index attribute to each preview image
+and the onfocus and onblur listeners
 
-        // Open the lightbox
-        function openLightbox(event) {
-            if (event.target.tagName === 'IMG') {
-                const clickedIndex = Array.from(images).indexOf(event.target);
-                currentIndex = clickedIndex;
-                updateLightboxImage();
-                document.getElementById('lightbox').style.display = 'flex';
-            }
-        }
+window.onload =  function(){ setup_images();};*/
 
-        // Close the lightbox
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
+function upDate(previewPic) {
+  /* grabbing the object at the image ID */
 
-        // Change the lightbox image based on direction (1 for next, -1 for prev)
-        function changeImage(direction) {
-            currentIndex += direction;
-            if (currentIndex >= totalImages) {
-                currentIndex = 0;
-            } else if (currentIndex < 0) {
-                currentIndex = totalImages - 1;
-            }
-            updateLightboxImage();
-        }
+  let my_element = document.getElementById("image");
 
-        // Update the lightbox image and thumbnails
-        function updateLightboxImage() {
-            const lightboxImg = document.getElementById('lightbox-img');
-            const thumbnailContainer = document.getElementById('thumbnail-container');
+  console.log("gallery preview active: " + previewPic.alt);
 
-            // Update the main lightbox image
-            lightboxImg.src = images[currentIndex].src;
+  /* In this function you should 
+    1) change the url for the background image of the div with the id = "image" 
+    to the source file of the preview image */
 
-            // Clear existing thumbnails
-            thumbnailContainer.innerHTML = '';
+  my_element.style.backgroundImage = "url('" + previewPic.src + "')";
 
-            // Add new thumbnails
-            images.forEach((image, index) => {
-                const thumbnail = document.createElement('img');
-                thumbnail.src = image.src;
-                thumbnail.alt = `Thumbnail ${index + 1}`;
-                thumbnail.classList.add('thumbnail');
-                thumbnail.addEventListener('click', () => updateMainImage(index));
-                thumbnailContainer.appendChild(thumbnail);
-            });
+  /* 2) Change the text  of the div with the id = "image" 
+    to the alt text of the preview image 
+    */
 
-            // Highlight the current thumbnail
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            thumbnails[currentIndex].classList.add('active-thumbnail');
-        }
+  my_element.innerHTML = previewPic.alt;
+}
 
-        // Update the main lightbox image when a thumbnail is clicked
-        function updateMainImage(index) {
-            currentIndex = index;
-            updateLightboxImage();
-        }
+function unDo() {
+  /* grabbing the object at the image ID */
 
-        // Add initial thumbnails
-        updateLightboxImage();
+  let my_element = document.getElementById("image");
 
+  /* In this function you should 
+    1) Update the url for the background image of the div with the id = "image" 
+    back to the orginal-image.  You can use the css code to see what that original URL was */
 
-        // To add keyboard navigation (left/right arrow keys)
-        document.addEventListener('keydown', function (e) {
-            if (document.getElementById('lightbox').style.display === 'flex') {
-                if (e.key === 'ArrowLeft') {
-                    changeImage(-1);
-                } else if (e.key === 'ArrowRight') {
-                    changeImage(1);
-                }
-            }
-        });
+  my_element.style.backgroundImage = "url()";
+
+  /* 2) Change the text  of the div with the id = "image" 
+    back to the original text.  You can use the html code to see what that original text was
+    */
+
+  my_element.innerHTML = "Hover over an image below to display here.";
+}
+
+/* Adding the tab index set to 0 for all the preview images.
+I also added the onfocus and onblur eventlisteners in the same loop.
+Note: I couls have done the onmouseover and onmouseout listeners the same way.*/
+function setup_images() {
+  console.log("window loaded and updating the image event listeners");
+  currentImages = document.querySelectorAll(".preview");
+  for (var i = 0; i < currentImages.length; i++) {
+    currentImages[i].setAttribute("tabindex", "0");
+    /* adding the onfocus and onblur event watchers to the image elements */
+    currentImages[i].addEventListener("focus", function () {
+      upDate(this);
+    });
+    currentImages[i].addEventListener("blur", function () {
+      unDo();
+    });
+  }
+}
