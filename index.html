@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery</title>
-    <link rel="stylesheet" href="css/externalfilegallery.css">
-    <script src="js/externalfilegallery.js"></script>
+  <meta charset="UTF-8">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/script.js"></script>
 </head>
-<h1>Image Gallery</h1>
 
-    <div class="gallery" onclick="openLightbox(event)">
-        <img src="images/Axis_relaxing_shade.jpg"
-            alt="Relaxing in shade">
-        <img src="images/Axis_chill.jpg"
-            alt="Taking a rest">
-        <img src="images/Lincoln_walking.jpg"
-            alt="Walking in leaves">
-        <img src="images/Lincoln_covered.jpg"
-            alt="Hiding in grass">
+<body onload="setup_images()">
+  <a href="#gallery">Skip to Image Previews</a>
+
+  <main>
+    <div id="image">
+      Hover over an image below to display here.
     </div>
 
-    <!-- Lightbox container -->
-    <div id="lightbox">
-        <!-- Close button -->
-        <span id="close-btn" onclick="closeLightbox()">&times;</span>
+    <div id="gallery">
+      <img class="preview" alt="Relaxing in the shade." src="images/Axis_relaxing_shade.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
 
-        <!-- Main lightbox image -->
-        <img id="lightbox-img" src="" alt="lightbox image">
+      <img class="preview" alt="Walking in the Autumn leaves." src="images/Lincoln_walking.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
 
-        <!-- Thumbnails container -->
-        <div id="thumbnail-container">
-            <!-- Thumbnails will be added dynamically using JavaScript -->
-        </div>
+      <img class="preview" alt="Typical judgemental husky." src="images/Willow_funny_look.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
 
-        <!-- Previous and Next buttons -->
-        <button id="prev-btn" onclick="changeImage(-1)">&lt; Prev</button>
-        <button id="next-btn" onclick="changeImage(1)">Next &gt;</button>
+      <img class="preview" alt="First hike in Colorado" src="images/Axis_hiking.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
+
+      <img class="preview" alt="My cat covered in grass." src="images/Lincoln_covered.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
+
+      <img class="preview" alt="Sunbathing by the garden." src="images/Daryl_garden.jpg" onmouseover="upDate(this)" onmouseout="unDo()">
     </div>
+  </main>
+</body>
+
+</html>
