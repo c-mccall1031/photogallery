@@ -38,10 +38,9 @@ body > a:focus {
 .preview {
   width: 200px;
   height: 170px;
-  margin-left: 7%;
+  margin-left: 15%;
   border: 3px solid black;
   background-color: #FFFFFF;
-  padding: 2%;
 }
 
 img {
